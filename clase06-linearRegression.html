@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>linearRegression</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>clase06-linearRegression</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11959,7 +11959,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Q1</span>
@@ -11975,7 +11975,7 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[3]:</div>
+<div class="prompt output_prompt">Out[1]:</div>
 
 
 
@@ -11991,7 +11991,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Q2</span>
@@ -12007,7 +12007,7 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[1]:</div>
+<div class="prompt output_prompt">Out[2]:</div>
 
 
 
@@ -12622,13 +12622,13 @@ differs from the actual functional relationship $f$.</p>
 <strong>three common evaluation metrics</strong> for regression problems:</p>
 <ul>
 <li><p><strong>Mean Absolute Error (MAE)</strong> is the mean of the absolute value of the errors:
-$$\frac 1n\sum_{i=1}^n|y_i-\hat{y}_i|$$</p>
+$$ \frac{1}{n}\sum_{i=1}^n|y_i-\hat{y}_i| $$</p>
 </li>
 <li><p><strong>Mean Squared Error (MSE)</strong>  "punishes" larger errors, taking just the mean of the squared errors:
-$$\frac 1n\sum_{i=1}^n(y_i-\hat{y}_i)^2$$</p>
+$$\frac{1}{n}\sum_{i=1}^n(y_i-\hat{y}_i)^2$$</p>
 </li>
 <li><p><strong>Root Mean Squared Error (RMSE)</strong> is interpretable in the "y" units, since it is the square root of the mean of the squared errors:
-$$\sqrt{\frac 1n\sum_{i=1}^n(y_i-\hat{y}_i)^2}$$</p>
+$$\sqrt{\frac{1}{n} \sum_{i=1}^n(y_i-\hat{y}_i)^2}$$</p>
 </li>
 </ul>
 
@@ -12637,13 +12637,13 @@ $$\sqrt{\frac 1n\sum_{i=1}^n(y_i-\hat{y}_i)^2}$$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="c1"># define true and predicted response values</span>
-<span class="n">true_value</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
-<span class="n">pred_value</span> <span class="o">=</span> <span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="c1"># calculate Mean Absolute Error (MAE) </span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+<span class="n">y_hat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -12651,13 +12651,27 @@ $$\sqrt{\frac 1n\sum_{i=1}^n(y_i-\hat{y}_i)^2}$$</p>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Mean Absolute Error (MAE)</strong> is the mean of the absolute value of the errors:</p>
+$$
+\begin{align*}
+\frac{1}{n}\sum_{i=1}^n|y_i-\hat{y}_i|  &= \frac{1}{n}(|y_1-\hat{y}_1| + \ldots + |y_n-\hat{y}_n|)  \\
+\end{align*}
+$$
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># calculate MAE by hand</span>
-<span class="nb">print</span><span class="p">((</span><span class="mi">10</span> <span class="o">+</span> <span class="mi">0</span> <span class="o">+</span> <span class="mi">20</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span><span class="o">/</span><span class="mf">4.</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># by hand</span>
+<span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="mi">0</span> <span class="o">+</span> <span class="mi">20</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span> <span class="c1">#/4.</span>
 </pre></div>
 
 </div>
@@ -12669,12 +12683,14 @@ $$\sqrt{\frac 1n\sum_{i=1}^n(y_i-\hat{y}_i)^2}$$</p>
 
 
 <div class="output_area">
-<div class="prompt"></div>
+<div class="prompt output_prompt">Out[4]:</div>
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>10.0
-</pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>40</pre>
 </div>
+
 </div>
 
 </div>
@@ -12683,7 +12699,252 @@ $$\sqrt{\frac 1n\sum_{i=1}^n(y_i-\hat{y}_i)^2}$$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">y_hat</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span>
+  <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">y_hat</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span>
+  <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">y_hat</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> 
+  <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">-</span><span class="n">y_hat</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="p">)</span> <span class="c1">#/4.    </span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>40</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_hat</span><span class="p">)</span>
+<span class="p">[</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">y_hat</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>  <span class="k">for</span>  <span class="n">i</span>  <span class="ow">in</span>  <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="p">]</span>  <span class="c1"># list comprehension</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[6]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[10, 0, 20, 10]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span> <span class="nb">zip</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_hat</span><span class="p">)</span> <span class="p">)</span>  <span class="c1"># &#39;tuple&#39; does not support item assignment </span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[7]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[(100, 90), (50, 50), (30, 50), (20, 30)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span> <span class="nb">abs</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="k">for</span>  <span class="n">a</span>  <span class="ow">in</span>  <span class="nb">zip</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_hat</span><span class="p">)]</span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[8]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[10, 0, 20, 10]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span> <span class="nb">map</span><span class="p">(</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">:</span><span class="nb">abs</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">zip</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_hat</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="c1"># scatter</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[10, 0, 20, 10]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">true_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+<span class="n">pred_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
+
+<span class="n">niter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">true_value</span><span class="p">,</span><span class="n">pred_value</span><span class="p">))</span>
+
+<span class="n">items</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">niter</span><span class="p">])</span> <span class="c1"># [0][0]</span>
+
+<span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span> <span class="p">]</span>
+<span class="c1"># np.sum(</span>
+<span class="c1"># [ np.abs(item[0]-item[1]) for item in items] </span>
+<span class="c1"># ) * (1/len(items))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[10]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[10, 0, 20, 10]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">true_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+<span class="n">pred_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
+<span class="n">index</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">true_value</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">niter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">true_value</span><span class="p">,</span> <span class="n">pred_value</span><span class="p">))</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">niter</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span> <span class="n">index</span><span class="p">)</span> <span class="c1"># .iloc[0][0] #[0][0]</span>
+
+<span class="p">[</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="k">for</span>  <span class="n">item</span>  <span class="ow">in</span>  <span class="n">items</span> <span class="p">]</span>
+<span class="c1">#pd.Series(</span>
+<span class="c1">#  [pd.Series.abs(item[0]-item[1]) for item in items]</span>
+<span class="c1"># ).sum() * (1/len(items))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[11]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[10, 0, 20, 10]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># calculate MSE by hand</span>
@@ -12713,7 +12974,7 @@ $$\sqrt{\frac 1n\sum_{i=1}^n(y_i-\hat{y}_i)^2}$$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># calculate RMSE by hand</span>
@@ -12747,18 +13008,18 @@ $$\sqrt{\frac 1n\sum_{i=1}^n(y_i-\hat{y}_i)^2}$$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Least-squared-error-vs-Mean-squared-error:--fitting-vs-evaluation">Least squared error vs Mean squared error:  fitting vs evaluation<a class="anchor-link" href="#Least-squared-error-vs-Mean-squared-error:--fitting-vs-evaluation">&#182;</a></h1><p>When we want to <strong>build a model</strong> (linear regression in our case), 
-we would usually use the <strong>least square error</strong> method</p>
+<h1 id="LSE-vs-MSE:--fitting-vs-evaluation">LSE vs MSE:  fitting vs evaluation<a class="anchor-link" href="#LSE-vs-MSE:--fitting-vs-evaluation">&#182;</a></h1><p>When we want to <strong>build a model</strong> (linear regression in our case), 
+we would usually use the <strong>Least Square Error (LSE)</strong> method</p>
 <ul>
 <li><strong>minimizing the total euclidean distance</strong> between a line and the data points <blockquote><p>Theoretically the coefficients of this line can be found using calculus but in practice, an algorithm will perform a <strong>gradient descent</strong> which is faster.</p>
 </blockquote>
 </li>
 </ul>
-<p>Once you have your model, you want to evaluate its performance. 
-Thus, in the case of regression, 
-we evaluate <em>how far</em> in <strong>average</strong> is our model from the actual data points (or test dataset).</p>
-<blockquote><p>The <strong>Mean Squared Error</strong> (MSE) is a good estimate that we might want to use</p>
-<p><strong>NOTE</strong>: LSE is a method that builds a model, and MSE is a metric that evaluate model's performance.</p>
+<p>Once we have your model, we want to <strong>evaluate its performance</strong>; 
+thus, in the case of regression, the <strong>Mean Squared Error (MSE)</strong> 
+is good to evaluate <strong><em>how far  in average</em></strong> is our model 
+from the actual data points (or test dataset).</p>
+<blockquote><p><strong>NOTE</strong>: <strong>LSE</strong> is a method that <strong>builds a model</strong>, and <strong>MSE</strong> is a metric that evaluate <strong>model's performance</strong>.</p>
 </blockquote>
 
 </div>
@@ -12783,16 +13044,19 @@ we evaluate <em>how far</em> in <strong>average</strong> is our model from the a
 <p>Let's suppose we are given the followign dataset:</p>
 <table>
 <thead><tr>
+<th>point</th>
 <th>x</th>
 <th>y</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td>$p_1$</td>
 <td>1</td>
 <td>1</td>
 </tr>
 <tr>
+<td>$p_2$</td>
 <td>3</td>
 <td>2</td>
 </tr>
@@ -12807,7 +13071,7 @@ we evaluate <em>how far</em> in <strong>average</strong> is our model from the a
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -12983,15 +13247,6 @@ JwwzM0vFCcPMzFL5/13bwo9xOs87AAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="That's-it-for-now...">That's it for now...<a class="anchor-link" href="#That's-it-for-now...">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>In this problem, we are looking for a model that captures the <strong><em>functional relationship</em></strong> between these two points.</p>
 <p>Using <strong>linear regression</strong> our <em>hypothesis</em> is that such <strong><em>functional relationship</em></strong> can be <strong>modeled</strong> as a <strong>line</strong>, represented as:
 $$
@@ -13012,12 +13267,13 @@ y &= f(\mathbf{x};\boldsymbol{\beta}) \\
   &= \langle  \boldsymbol{\beta} , \mathbf{x} \rangle \\
   &= \boldsymbol{\beta}\cdot \mathbf{x} \\ 
   &= \boldsymbol{\beta}^{T}\mathbf{x} \\ 
-  &= [\beta_0,\beta_1] \begin{bmatrix} 1\\x_1 \end{bmatrix}  \\
-  &= \beta_0 1 + \beta_{1}x_{1} \\
+  &= [\beta_0,\beta_1] \begin{bmatrix} x_0\\x_1 \end{bmatrix}  \\
+  &= \beta_0 x_0 + \beta_{1}x_{1} \\
 \end{align*}
-$$<p>In our problem, since both points <em>live</em> in the same line, they both should  satisfy the same linear model. So let's compute the $\beta$ parameters, which are common for our data points</p>
+$$<p>In our problem, since both points <em>live</em> in the same line (<strong>linear relationship</strong>), they both should satisfy (<em>obey</em>) the same linear model. So let's compute the $\beta$ parameters, which are common for our data points</p>
 <table>
 <thead><tr>
+<th>point</th>
 <th>$x_0$</th>
 <th>$x_1$</th>
 <th>$y$</th>
@@ -13026,12 +13282,14 @@ $$<p>In our problem, since both points <em>live</em> in the same line, they both
 </thead>
 <tbody>
 <tr>
+<td>$p_1$</td>
 <td>1</td>
 <td>1</td>
 <td>1</td>
 <td>$1 = \beta_0 (1) + \beta_{1} (1)$  </td>
 </tr>
 <tr>
+<td>$p_2$</td>
 <td>1</td>
 <td>3</td>
 <td>2</td>
@@ -13039,8 +13297,12 @@ $$<p>In our problem, since both points <em>live</em> in the same line, they both
 </tr>
 </tbody>
 </table>
-<p>These two equations are actually a $2\times 2$ system of <strong><em>linear algebraic equations</em></strong>, i.e., $2$ equations in $2$ unknowns,
+<p>These two equations are actually a <strong><em>$2\times 2$ system of linear algebraic equations</em></strong>, i.e., <strong> $2$ equations in $2$ unknowns</strong>,
 which we have to solve, in order to figure out what is the line that <em>passes</em> through the points.</p>
+$$
+\beta_0 (1) + \beta_{1} (1) = 1 \\
+\beta_0 (1) + \beta_{1} (3) = 2 
+$$<p></p>
 <p>Thus, the system may be written as the matrix equation $\mathbf{A} \cdot \boldsymbol{\beta} = \mathbf{y} $, where</p>
 <p>$
 \mathbf{A}= 
@@ -13062,33 +13324,35 @@ $
 \end{bmatrix} 
 $</p>
 <p>thus, $\mathbf{A} \cdot \boldsymbol{\beta} = \mathbf{y}$ becomes</p>
-<p>$
+$$
 \begin{bmatrix}
-1 &amp; 1 \
-1 &amp; 3 \
+1 & 1 \\
+1 & 3 \\
 \end{bmatrix}
 \cdot
 \begin{bmatrix} 
-\beta<em>{0}\ \beta</em>{1}</p>
-<h1 id="\end{bmatrix}-">\end{bmatrix} <a class="anchor-link" href="#\end{bmatrix}-">&#182;</a></h1>\begin{bmatrix} 
+\beta_{0}\\ \beta_{1}
+\end{bmatrix} 
+=
+\begin{bmatrix} 
 1\\ 2
-\end{bmatrix}<p>
-$</p>
-<p>Can you see the <strong>linear combination</strong> of the <strong>column vectors</strong> of our system ?</p>
-<p>$
+\end{bmatrix} 
+$$<p>Can you see the <strong>linear combination</strong> of the <strong>column vectors</strong> of our system ?</p>
+$$
 \begin{bmatrix}
-1 \ 1 
+1 \\ 1 
 \end{bmatrix}
 \beta_0
 +
 \begin{bmatrix}
-1 \ 3 
-\end{bmatrix}</p>
-<h1 id="\beta_1">\beta_1<a class="anchor-link" href="#\beta_1">&#182;</a></h1>\begin{bmatrix} 
+1 \\ 3 
+\end{bmatrix}
+\beta_1
+=
+\begin{bmatrix} 
 1\\ 2
-\end{bmatrix}<p>
-$</p>
-<p>Now, we are just coming to the point where we have several <strong>algebraic equations</strong>, so we need <strong>matrices</strong>.</p>
+\end{bmatrix} 
+$$<p>Now, we are just coming to the point where we have several <strong>algebraic equations</strong>, so we need <strong>matrices</strong>.</p>
 <blockquote><p>Do you remember $ \mathbf{A \cdot x} = \mathbf{b}$ and how to solve it? ... where $\mathbf{A}$, $\mathbf{b}$ are <em>known</em>, and $ \mathbf{x}$ is <em>unknown</em></p>
 </blockquote>
 
@@ -13104,7 +13368,7 @@ $</p>
 <h1 id="Linear-Algebra-breviary">Linear Algebra breviary<a class="anchor-link" href="#Linear-Algebra-breviary">&#182;</a></h1><hr>
 <hr>
 <h1 id="Linear-Equations">Linear Equations<a class="anchor-link" href="#Linear-Equations">&#182;</a></h1><hr>
-<p>A <strong>fundamental problem</strong> that commonly arises in all mathematical sciences is that of analyzing and solving $m$ algebraic equations in $n$ unknowns.</p>
+<p>A <strong>fundamental problem</strong> that commonly arises in all <strong>mathematical sciences</strong> is that of <strong><em>analyzing and solving</em></strong> $m$ algebraic equations in $n$ unknowns.</p>
 <p>The <strong>problem</strong> is to determine, if possible, a common solution for a system. In general, we have $m$ <strong><em>linear algebraic equations</em></strong> in $n$ unknowns</p>
 $$
 a_{1,1} x_1 + a_{1,2} x_2 + \ldots + a_{1,n} x_n = b_1 ,\\
@@ -13137,20 +13401,22 @@ $
  \end{pmatrix}
 $</p>
 <p>thus, $\mathbf{A \cdot x} = \mathbf{b}$ becomes</p>
-<p>$
+$$
 \begin{pmatrix} %smallmatrix
-a<em>{1,1} &amp; a</em>{1,2} &amp; \cdots &amp; a<em>{1,n} \
-a</em>{2,1} &amp; a<em>{2,2} &amp; \cdots &amp; a</em>{2,n} \
-\vdots  &amp; \vdots  &amp; \ddots &amp; \vdots  \
-a<em>{m,1} &amp; a</em>{m,2} &amp; \cdots &amp; a<em>{m,n} 
+a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+\vdots  & \vdots  & \ddots & \vdots  \\
+a_{m,1} & a_{m,2} & \cdots & a_{m,n} 
 \end{pmatrix}
 \cdot
 \begin{pmatrix} %smallmatrix
-x</em>{1}\ x<em>{2}\ \vdots\ x</em>{n}</p>
-<h1 id="\end{pmatrix}-">\end{pmatrix} <a class="anchor-link" href="#\end{pmatrix}-">&#182;</a></h1>\begin{pmatrix} %smallmatrix
+x_{1}\\ x_{2}\\ \vdots\\ x_{n} 
+\end{pmatrix} 
+= 
+\begin{pmatrix} %smallmatrix
 b_{1}\\ b_{2}\\ \vdots\\ b_{m} 
-\end{pmatrix}<p>$</p>
-<p>where $\mathbf{A}$ is called the <strong>coefficient matrix</strong> for the system.</p>
+\end{pmatrix}
+$$<p>where $\mathbf{A}$ is called the <strong>coefficient matrix</strong> for the system.</p>
 <hr>
 <h1 id="Solving-linear-equations-systems">Solving linear equations systems<a class="anchor-link" href="#Solving-linear-equations-systems">&#182;</a></h1><p>There are exactly <em>three possibilities</em> for the <strong><em>set of solutions</em></strong> for any such system:</p>
 <ul>
@@ -13180,7 +13446,7 @@ $$
 E_{1}\\ E_{2}\\ \vdots\\ E_{m} 
 \end{Bmatrix} 
 $$</p>
-<p>where, $E_k$ denote the $k$th equation $E_k : a_{k,1}x_1 + a_{k,2}x_2 + \ldots + a_{k,n}x_n = b_k$</p>
+<p>where the $k$th equation is given by $E_k:  a_{k,1}x_1 + a_{k,2}x_2 + \ldots + a_{k,n}x_n = b_k$</p>
 <p>For such a linear system $\mathcal{S}$, each of the following three <strong>elementary operations</strong> results in an equivalent system $\mathcal{S'}$:</p>
 <p>1. <strong><em>Interchange</em></strong> the $i$th and $j$th equations. That is, if</p>
 <p>$
@@ -13351,14 +13617,16 @@ $$
 \begin{bmatrix} 
 \frac{1}{2}\\ \frac{1}{2} 
 \end{bmatrix} 
-$$<p>Finally,  our initial <em>hypothesis</em> was that the <strong><em>functional relationship</em></strong> between our data points could  be <strong>modeled</strong> as a <strong>line</strong>, represented as:
+$$<p>What we actually just did, 
+was to solve the matrix equation $\mathbf{A \cdot x} = \mathbf{b}$,
+by finding:</p>
+$$ \mathbf{x} = \mathbf{A}^{-1} \cdot \mathbf{b} $$<p>Finally,  our initial <em>hypothesis</em> was that the <strong><em>functional relationship</em></strong> between our data points could  be <strong>modeled</strong> as a <strong>line</strong>, represented as:</p>
 $$
 \begin{align*}
 y &= f(x) \\
   &= \beta_0 x_0 + \beta_{1}x_{1} \quad  \text{where $x_0=1$}\\
 \end{align*}
-$$</p>
-<p>And now, we know that 
+$$<p>And now, we know that 
 $
 \boldsymbol{\beta} =
 \begin{bmatrix} 
@@ -13373,7 +13641,33 @@ y &= f(x) \\
   \therefore \\
 y &= \frac{1}{2} + \frac{1}{2} x_{1}
 \end{align*}
-$$
+$$<table>
+<thead><tr>
+<th>point</th>
+<th>$x_0$</th>
+<th>$x_1$</th>
+<th>$y$</th>
+<th>Fitted model: $ y = \frac{1}{2} + \frac{1}{2} x_{1}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$p_1$</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>$1 = \frac{1}{2} (1) + \frac{1}{2} (1)$  </td>
+</tr>
+<tr>
+<td>$p_2$</td>
+<td>1</td>
+<td>3</td>
+<td>2</td>
+<td>$2 = \frac{1}{2} (1) + \frac{1}{2} (3)$ </td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
 </div>
@@ -13388,7 +13682,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#import numpy as np</span>
@@ -13410,7 +13704,7 @@ $$
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[6]:</div>
+<div class="prompt output_prompt">Out[15]:</div>
 
 
 
@@ -13445,7 +13739,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -13641,19 +13935,6 @@ AElFTkSuQmCC
 
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-</div>
 </div>
 </div>
 
