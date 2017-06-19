@@ -13432,21 +13432,19 @@ $$<p>where $\mathbf{A}$ is called the <strong>coefficient matrix</strong> for th
 <li>two systems are called <strong>equivalent</strong> if they possess equal solution sets</li>
 </ul>
 <p>The elimination process relies on <strong>three simple operations</strong>.</p>
-<p>Lets write the system 
+<p>Let's write the system</p>
 $$
 a_{1,1} x_1 + a_{1,2} x_2 + \ldots + a_{1,n} x_n = b_1 ,\\
 a_{2,1} x_1 + a_{2,2} x_2 + \ldots + a_{2,n} x_n = b_2 ,\\
 \vdots \\
 a_{m,1} x_1 + a_{m,2} x_2 + \ldots + a_{m,n} x_n = b_m 
-$$</p>
-<p>as
+$$<p>as</p>
 $$
 \mathcal{S} = 
 \begin{Bmatrix} %smallmatrix
 E_{1}\\ E_{2}\\ \vdots\\ E_{m} 
 \end{Bmatrix} 
-$$</p>
-<p>where the $k$th equation is given by $E_k:  a_{k,1}x_1 + a_{k,2}x_2 + \ldots + a_{k,n}x_n = b_k$</p>
+$$<p>where the $k$th equation is given by $E_k:  a_{k,1}x_1 + a_{k,2}x_2 + \ldots + a_{k,n}x_n = b_k$</p>
 <p>For such a linear system $\mathcal{S}$, each of the following three <strong>elementary operations</strong> results in an equivalent system $\mathcal{S'}$:</p>
 <p>1. <strong><em>Interchange</em></strong> the $i$th and $j$th equations. That is, if</p>
 <p>$
@@ -13527,7 +13525,7 @@ $$<p>In order to reduce this system we need to apply the <strong>elementary oper
 $$
 \mathcal{S}=  [ \mathbf{A} \; | \; \mathbf{y} ]
 $$<p>where the line emphasizes where the "$=$" appeared.</p>
-<p>$
+$$
 \mathcal{S}= 
 \begin{bmatrix}
 \begin{array}{cc|c}
@@ -13535,8 +13533,7 @@ $$<p>where the line emphasizes where the "$=$" appeared.</p>
 1 & 3 & 2\\
 \end{array}
 \end{bmatrix}
-$</p>
-<p>$
+$$$$
 \mathcal{S'}= 
 \begin{bmatrix}
 \begin{array}{cc|c}
@@ -13544,17 +13541,14 @@ $</p>
 1 & 3 & 2\\
 \end{array}
 \end{bmatrix}
-$
-$\xrightarrow{E_2 \leftarrow E_2 - E_1 }$
-$
+\xrightarrow{E_2 \leftarrow E_2 - E_1 }$
 \begin{bmatrix}
 \begin{array}{cc|c}
 1 & 1 & 1\\
 0 & 2 & 1\\
 \end{array}
 \end{bmatrix}
-$</p>
-<p>$
+$$$$
 \mathcal{S'}= 
 \begin{bmatrix}
 \begin{array}{cc|c}
@@ -13562,17 +13556,14 @@ $</p>
 0 & 2 & 1\\
 \end{array}
 \end{bmatrix}
-$
-$\xrightarrow{E_2 \leftarrow \alpha E_2}$
-$
+\xrightarrow{E_2 \leftarrow \alpha E_2}$
 \begin{bmatrix}
 \begin{array}{cc|c}
 1 & 1 & 1\\
 0 & 1 & \frac{1}{2}\\
 \end{array}
 \end{bmatrix}
-$</p>
-<p>$
+$$$$
 \mathcal{S'}= 
 \begin{bmatrix}
 \begin{array}{cc|c}
@@ -13580,17 +13571,14 @@ $</p>
 0 & 1 & \frac{1}{2}\\
 \end{array}
 \end{bmatrix}
-$
-$\xrightarrow{E_1 \leftarrow E_1 - E_2}$
-$
+\xrightarrow{E_1 \leftarrow E_1 - E_2}$
 \begin{bmatrix}
 \begin{array}{cc|c}
 1 & 0 & \frac{1}{2}\\
 0 & 1 & \frac{1}{2}\\
 \end{array}
 \end{bmatrix}
-$</p>
-<p>The final array represents the system</p>
+$$<p>The final array represents the system</p>
 $$
 \begin{bmatrix} %smallmatrix
 1 & 0  \\
